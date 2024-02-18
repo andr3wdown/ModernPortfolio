@@ -75,6 +75,12 @@ export class Navbar extends HTMLElement{
             .navbar div{
                 font-size: 32px;
                 font-weight: 100;
+                margin-left: 0px;
+                transition: 0.3s all;
+                min-width: 200px;
+            }
+            .navbar div:hover{
+                margin-left: 30px;
             }
 
             .navbar-footer{

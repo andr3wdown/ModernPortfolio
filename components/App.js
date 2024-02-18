@@ -19,7 +19,7 @@ export class App extends HTMLElement{
         return /*css*/`
             div *{
                 opacity: 0;
-                animation: fadein 2.7s forwards;
+                animation: fadein 2.8s forwards;
             }
             .content-container{
                 display: flex;
@@ -31,13 +31,13 @@ export class App extends HTMLElement{
                 font-family: var(--font-family);
             }
             h1{
-                font-weight: 100;
+                font-weight: 300;
                 font-size: 64px;
             }
             h2{
                 font-weight: 1000;
                 font-size: 32px;
-                background: -webkit-linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+                background: -webkit-linear-gradient(90deg, rgba(58,155,180,1) 0%, rgba(29,33,253,1) 50%, rgba(252,176,69,1) 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 display: flex;
