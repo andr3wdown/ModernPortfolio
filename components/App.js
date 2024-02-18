@@ -20,7 +20,6 @@ export class App extends HTMLElement{
             </div>
             
         `;
-    
     }
     get style(){
         return /*css*/`
@@ -36,7 +35,7 @@ export class App extends HTMLElement{
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                min-height: 100vh;
+                min-height: 400vh;
             }
             .content-container{
                 display: flex;
@@ -62,14 +61,25 @@ export class App extends HTMLElement{
                 align-items: flex-end;
             }
             header{
-                margin-top: 150px;
+                margin-top: 250px;
                 margin-bottom: 50px;
                 display: grid;
                 grid-template-areas: "h1 h2" "hr hr";
+                animation: slidedown 1.2s forwards;
             }
             hr{
                 width: 100%;
         
+            }
+            @keyframes slidedown{
+                0%{
+                    opacity: 1;
+                    margin-top: -100px;
+                }
+                100%{
+                    opacity: 1;
+                    margin-top:150px;
+                }
             }
             @keyframes fadein{
                 0%{
@@ -83,10 +93,26 @@ export class App extends HTMLElement{
         `;
     
     }
+    connectedCallback() {
+        window.addEventListener('scroll', this.onScroll);
+    }
 
+    disconnectedCallback() {
+        window.removeEventListener('scroll', this.onScroll);
+    }
+
+    onScroll = () => {
+        //let scrollPosition = window.scrollY;
+        console.log(this.screenBottom);
+    }
+    get screenBottom(){
+        return window.scrollY + window.innerHeight;
+    }
     constructor(){
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.innerHTML = this.template;
+        let temp = this.shadowRoot.querySelector('footer').getBoundingClientRect().top + window.scrollY;
+        console.log(temp);  
     }
 }
