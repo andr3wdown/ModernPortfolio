@@ -27,7 +27,16 @@ export class CursorFollower extends HTMLElement{
                 width: 50px;
                 height: 50px;
                 border-radius: 25px;
+                animation: fadein 3s forwards;
             
+            }
+            @keyframes fadein {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
             }
         `;
     };

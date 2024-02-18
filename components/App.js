@@ -11,7 +11,12 @@ export class App extends HTMLElement{
                     <hr>
                     <hr>
                 </header>
-                
+                <main>
+
+                </main>
+                <footer>
+                    <p>© 2024 Chong Lee</p>
+                </footer>
             </div>
             
         `;
@@ -26,13 +31,20 @@ export class App extends HTMLElement{
                 opacity: 0;
                 animation: fadein 2.8s forwards;
             }
+            main{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+            }
             .content-container{
                 display: flex;
                 flex-direction: column;
                 padding-left: calc(40% + 100px);
                 padding-right: 100px;
                 width: calc(100% - 40% - 200px);
-                height: 200vh;
+                min-height: 100vh;
                 font-family: var(--font-family);
             }
             h1{
