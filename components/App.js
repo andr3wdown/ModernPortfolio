@@ -24,7 +24,7 @@ export class App extends HTMLElement{
                                         This place isn't about being perfect. It's more like my creative playground where I try new things and showcase what I've made. Feel free to check things out. Enjoy your stay!</p>
                     </article-element>
                     <div class="project-card-container">
-                        <h3>Projects</h3>
+                        <h3 class="project-title">Projects</h3>
                         <project-card image="https://via.placeholder.com/250" alignment="left" title="Project 1">
                             <p style="font-style: italic; color: lightgray;">2019</p>
                             <p>Project 1 is a cool project that I made. It's about something that I like</p>
@@ -46,6 +46,22 @@ export class App extends HTMLElement{
                             <p>Project 5 is a cool project that I made. It's about something that I like</p>
                         </project-card>
                     </div>
+                    <article-element class="blog-title">
+                        <h3 slot="title">Blog</h3>
+                        <p slot="text"> Welcome to my online spot! I'm Chong Lee, and I like messing around with code and design.
+
+                                        I'm into Python, C#, and JavaScript. HTML and CSS? Yeah, I use them to make websites that look cool and work smoothly. I have some experience with ReactJS. I use Unity to create fun games. From wild ideas to playable stuff, I'm all about bringing cool things to life. I also use Blender and Photoshop to create 3D models and cool designs.
+
+                                        This place isn't about being perfect. It's more like my creative playground where I try new things and showcase what I've made. Feel free to check things out. Enjoy your stay!</p>
+                    </article-element>
+                    <article-element class="more-title">
+                        <h3 slot="title">More</h3>
+                        <p slot="text"> Welcome to my online spot! I'm Chong Lee, and I like messing around with code and design.
+
+                                        I'm into Python, C#, and JavaScript. HTML and CSS? Yeah, I use them to make websites that look cool and work smoothly. I have some experience with ReactJS. I use Unity to create fun games. From wild ideas to playable stuff, I'm all about bringing cool things to life. I also use Blender and Photoshop to create 3D models and cool designs.
+
+                                        This place isn't about being perfect. It's more like my creative playground where I try new things and showcase what I've made. Feel free to check things out. Enjoy your stay!</p>
+                    </article-element>
                 </main>
                 <footer>
                     <p>© 2024 Chong Lee</p>
@@ -65,7 +81,6 @@ export class App extends HTMLElement{
                 flex-direction: column;
                 align-items: center;
                 justify-content: start;
-                min-height: 400vh;
             }
             .content-container{
                 z-index: 1;
@@ -112,6 +127,7 @@ export class App extends HTMLElement{
             }
             .project-card-container{
                 width: 100%;
+                padding-bottom: 100px;
             }
             @keyframes slidedown{
                 0%{
@@ -137,6 +153,7 @@ export class App extends HTMLElement{
     }
     connectedCallback() {
         window.addEventListener('scroll', this.onScroll);
+        
     }
 
     disconnectedCallback() {
@@ -144,8 +161,7 @@ export class App extends HTMLElement{
     }
 
     onScroll = () => {
-        //let scrollPosition = window.scrollY;
-        console.log(this.screenBottom);
+        console.log(window.scrollY);
     }
     get screenBottom(){
         return window.scrollY + window.innerHeight;
@@ -154,9 +170,14 @@ export class App extends HTMLElement{
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.innerHTML = this.template;
-        let temp = this.shadowRoot.querySelector('footer').getBoundingClientRect().top + window.scrollY;
-        console.log(temp);  
-        let headerHeight = this.shadowRoot.querySelector('.header-container').getBoundingClientRect().height;
-        console.log(headerHeight);
+        setTimeout(() => {
+            this.shadowRoot.querySelector('header').scrollIntoView(
+                { 
+                    behavior: 'smooth'
+                }
+            );
+        }, 200);
+        
+        
     }
 }

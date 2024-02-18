@@ -77,8 +77,6 @@ export class ProjectCard extends HTMLElement{
                 margin-left: 25px;
             }
 
-
-
             .project-image img{
                 width: 250px;
                 border-radius: 10px;
