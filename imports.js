@@ -1,5 +1,5 @@
-import {App} from './components/App.js';
-import {Navbar} from './components/Navbar.js';
+import { App } from './components/App.js';
+import { Navbar } from './components/Navbar.js';
 import { CursorFollower } from './components/CursorFollower.js';
 import { NavbarButtonDisplay } from './components/NavbarButtonDisplay.js';
 import { ArticleElement } from './components/ArticleElement.js';

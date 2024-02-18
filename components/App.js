@@ -25,21 +25,25 @@ export class App extends HTMLElement{
                     </article-element>
                     <div class="project-card-container">
                         <h3>Projects</h3>
-                        <project-card image="https://via.placeholder.com/250" title="Project 1">
+                        <project-card image="https://via.placeholder.com/250" alignment="left" title="Project 1">
                             <p style="font-style: italic; color: lightgray;">2019</p>
                             <p>Project 1 is a cool project that I made. It's about something that I like</p>
                         </project-card>
-                        <project-card image="https://via.placeholder.com/250" title="Project 2">
+                        <project-card image="https://via.placeholder.com/250" alignment="right" title="Project 2">
                             <p style="font-style: italic; color: lightgray;">2019</p>
                             <p>Project 2 is a cool project that I made. It's about something that I like </p>
                         </project-card>
-                        <project-card image="https://via.placeholder.com/250" title="Project 3">
+                        <project-card image="https://via.placeholder.com/250" alignment="left" title="Project 3">
                             <p style="font-style: italic; color: lightgray;">2019</p>
                             <p>Project 3 is a cool project that I made. It's about something that I like</p>
                         </project-card>
-                        <project-card image="https://via.placeholder.com/250" title="Project 4">
+                        <project-card image="https://via.placeholder.com/250" alignment="right" title="Project 4">
                             <p style="font-style: italic; color: lightgray;">2019</p>
                             <p>Project 4 is a cool project that I made. It's about something that I like</p>
+                        </project-card>
+                        <project-card image="https://via.placeholder.com/250" alignment="left" title="Project 5">
+                            <p style="font-style: italic; color: lightgray;">2019</p>
+                            <p>Project 5 is a cool project that I made. It's about something that I like</p>
                         </project-card>
                     </div>
                 </main>

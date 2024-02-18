@@ -1,15 +1,26 @@
 export class ProjectCard extends HTMLElement{
     get template(){
+        let image = /*html*/`
+            <div class="project-image ${this.getAttribute('alignment')}-img">
+                <img src="${this.getAttribute('image')}" alt="project image">
+            </div>
+        `;
+        let info = /*html*/`
+            <div class="project-info ${this.getAttribute('alignment')}-info">
+                <h3>${this.getAttribute('title')}</h3>
+                <slot></slot>
+                    
+            </div>
+                
+        `;
+
         return /*html*/`
             <style>${this.style}</style>
             <div class="project-card">
-                <div class="project-image">
-                    <img src="${this.getAttribute('image')}" alt="project image">
-                </div>
-                <div class="project-info">
-                    <h3>${this.getAttribute('title')}</h3>
-                    <slot></slot>
-                </div>
+                ${this.getAttribute('alignment') === 'left' ? image : info}
+                ${this.getAttribute('alignment') === 'left' ? info : image}
+                
+                
             </div>
         `;
     };
@@ -36,6 +47,7 @@ export class ProjectCard extends HTMLElement{
             :host(.visible:nth-child(odd)) {
                 transform: translateX(75px);
             }
+            
             .project-card{
                 display: flex;
                 flex-direction: row;
@@ -56,16 +68,21 @@ export class ProjectCard extends HTMLElement{
                 border: 1px solid white;
                 cursor: pointer;
             }
-            .project-image{
+            .right-img{
+                margin-right: 25px;
+                margin-left: 50px;
+            }
+            .left-img{
                 margin-right: 50px;
                 margin-left: 25px;
-
             }
+
+
+
             .project-image img{
                 width: 250px;
                 border-radius: 10px;
             }
-           
            
             .project-info{
                 height: 250px;
@@ -73,8 +90,20 @@ export class ProjectCard extends HTMLElement{
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
-                align-items: flex-start;
+                
+                
             }
+
+            .right-info{
+                align-items: flex-start;
+                margin-left: 25px;
+            }
+            .left-info{
+                align-items: flex-end;
+                margin-right: 25px;
+            }
+
+
             h3{
                 font-size: 32px;
                 font-weight: 500;
