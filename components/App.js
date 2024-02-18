@@ -16,9 +16,19 @@ export class App extends HTMLElement{
                 
                 <main>
                     <article-element>
-                        <h3 slot="title">Title</h3>
-                        <p slot="text">In eleifend et erat et ullamcorper. Nunc mi est, vehicula eu sapien et, mollis fermentum nunc. Praesent vel nisl sit amet justo lacinia luctus. Aliquam malesuada porttitor neque eu laoreet. In vehicula diam in hendrerit tristique. Suspendisse potenti. In sed justo sed lectus sodales congue. Vivamus sollicitudin tristique urna, at vestibulum nunc ullamcorper ut. Quisque vitae nulla nec dui tincidunt feugiat at id nulla. Nunc blandit vulputate volutpat. Maecenas tincidunt volutpat sapien, id aliquet enim pharetra et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor, risus a rhoncus vestibulum, dui enim pulvinar ipsum, sed placerat quam tellus id leo. Mauris nibh risus, ullamcorper ut ipsum dapibus, varius rhoncus odio. Pellentesque posuere nulla tellus, in scelerisque dui egestas rhoncus. Aenean quis eleifend dolor.</p>
+                        <h3 slot="title">About me</h3>
+                        <p slot="text"> Welcome to my online spot! I'm Chong Lee, and I like messing around with code and design.
+
+                                        I'm into Python, C#, and JavaScript. HTML and CSS? Yeah, I use them to make websites that look cool and work smoothly. I have some experience with ReactJS. I use Unity to create fun games. From wild ideas to playable stuff, I'm all about bringing cool things to life. I also use Blender and Photoshop to create 3D models and cool designs.
+
+                                        This place isn't about being perfect. It's more like my creative playground where I try new things and showcase what I've made. Feel free to check things out. Enjoy your stay!</p>
                     </article-element>
+                    <div class="project-card-container">
+                        <project-card image="https://via.placeholder.com/150" title="Project 1" description="This is a description of the project"></project-card>
+                        <project-card image="https://via.placeholder.com/150" title="Project 2" description="This is a description of the project"></project-card>
+                        <project-card image="https://via.placeholder.com/150" title="Project 3" description="This is a description of the project"></project-card>
+                        <project-card image="https://via.placeholder.com/150" title="Project 4" description="This is a description of the project"></project-card>
+                    </div>
                 </main>
                 <footer>
                     <p>© 2024 Chong Lee</p>

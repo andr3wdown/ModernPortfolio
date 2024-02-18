@@ -26,10 +26,8 @@ export class ArticleElement extends HTMLElement{
             }
             ::slotted(h3) {
                 font-size: 48px;
-                font-weight: 1000;
-                background: -webkit-linear-gradient(90deg, rgba(58,155,180,1) 0%, rgba(29,33,253,1) 50%, rgba(69,202,252,1) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
+                font-weight: 500;
+                
             }
             @keyframes fadein{
                 0%{

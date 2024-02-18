@@ -84,7 +84,7 @@ export class NavbarButtonDisplay extends HTMLElement{
     attributeChangedCallback(name, oldValue, newValue) {
         if(name === 'toggled'){
             this.toggled = newValue * 1;
-//console.log(`toggled: ${this.toggled}`);
+            //console.log(`toggled: ${this.toggled}`);
             this.render();
         }
     };
