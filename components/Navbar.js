@@ -8,10 +8,10 @@ export class Navbar extends HTMLElement{
                     
                 </div>
                 <div class="navbar">
-                    <navbar-button toggled="1">About me</navbar-button>
-                    <navbar-button toggled="0">Projects</navbar-button>
-                    <navbar-button toggled="0">Blog</navbar-button>
-                    <navbar-button toggled="0">More</navbar-button>
+                    <navbar-button toggled="1" first-time="1">About me</navbar-button>
+                    <navbar-button toggled="0" first-time="1">Projects</navbar-button>
+                    <navbar-button toggled="0" first-time="1">Blog</navbar-button>
+                    <navbar-button toggled="0" first-time="1">More</navbar-button>
                 </div>
          
                 <div class="navbar-footer">
@@ -43,7 +43,7 @@ export class Navbar extends HTMLElement{
             :host{
                 z-index: 1;
             }
-            div p, div h1{
+            div p, div h1, .itch-svg{
                 opacity: 0;
                 animation: fadein 2.3s forwards;
             }
@@ -77,6 +77,7 @@ export class Navbar extends HTMLElement{
                 align-items: center;
                 height: 60%;
                 width: 100%,
+                
             }
 
             .navbar-footer{
@@ -116,10 +117,6 @@ export class Navbar extends HTMLElement{
             h1{
                 font-size: 64px;
                 font-weight: 300;
-            }
-            .itch-svg{
-                opacity: 0;
-                animation: fadein 2.3s forwards;
             }
             @keyframes fadein{
                 0%{

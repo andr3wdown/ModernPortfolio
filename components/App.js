@@ -15,10 +15,10 @@ export class App extends HTMLElement{
                 </div>
                 
                 <main>
-                    <div class="text-article">
-                        <h3>Title</h3>
-                        <p>In eleifend et erat et ullamcorper. Nunc mi est, vehicula eu sapien et, mollis fermentum nunc. Praesent vel nisl sit amet justo lacinia luctus. Aliquam malesuada porttitor neque eu laoreet. In vehicula diam in hendrerit tristique. Suspendisse potenti. In sed justo sed lectus sodales congue. Vivamus sollicitudin tristique urna, at vestibulum nunc ullamcorper ut. Quisque vitae nulla nec dui tincidunt feugiat at id nulla. Nunc blandit vulputate volutpat. Maecenas tincidunt volutpat sapien, id aliquet enim pharetra et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor, risus a rhoncus vestibulum, dui enim pulvinar ipsum, sed placerat quam tellus id leo. Mauris nibh risus, ullamcorper ut ipsum dapibus, varius rhoncus odio. Pellentesque posuere nulla tellus, in scelerisque dui egestas rhoncus. Aenean quis eleifend dolor.</p>
-                    </div>
+                    <article-element>
+                        <h3 slot="title">Title</h3>
+                        <p slot="text">In eleifend et erat et ullamcorper. Nunc mi est, vehicula eu sapien et, mollis fermentum nunc. Praesent vel nisl sit amet justo lacinia luctus. Aliquam malesuada porttitor neque eu laoreet. In vehicula diam in hendrerit tristique. Suspendisse potenti. In sed justo sed lectus sodales congue. Vivamus sollicitudin tristique urna, at vestibulum nunc ullamcorper ut. Quisque vitae nulla nec dui tincidunt feugiat at id nulla. Nunc blandit vulputate volutpat. Maecenas tincidunt volutpat sapien, id aliquet enim pharetra et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor, risus a rhoncus vestibulum, dui enim pulvinar ipsum, sed placerat quam tellus id leo. Mauris nibh risus, ullamcorper ut ipsum dapibus, varius rhoncus odio. Pellentesque posuere nulla tellus, in scelerisque dui egestas rhoncus. Aenean quis eleifend dolor.</p>
+                    </article-element>
                 </main>
                 <footer>
                     <p>© 2024 Chong Lee</p>
@@ -32,9 +32,9 @@ export class App extends HTMLElement{
             *{
                 z-index: 1;
             }
-            div *{
+            h1, h2, p{
                 opacity: 0;
-                animation: fadein 2.8s forwards;
+                animation: fadein 2.3s forwards;
             }
             main{
                 display: flex;
@@ -74,7 +74,8 @@ export class App extends HTMLElement{
                 margin-bottom: 50px;
                 display: grid;
                 grid-template-areas: "h1 h2" "hr hr";
-                animation: slidedown 1.2s forwards;
+                animation-timing-function: linear;
+                animation: slidedown 1s forwards;
             }
             hr{
                 width: 100%;

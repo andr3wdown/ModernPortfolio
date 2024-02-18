@@ -52,7 +52,7 @@ export class CursorFollower extends HTMLElement{
         this.previous_mouse = {x: 0, y: 0};
         this.current_scale = 1;
         this.current_angle = 0;
-        this.SPEED = 0.2;
+        this.SPEED = 0.1;
         this.SCALE_SPEED = 0.1;
         this.OFFSET = 35;
 
