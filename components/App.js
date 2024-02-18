@@ -2,6 +2,7 @@ export class App extends HTMLElement{
     get template () {
         return /*html*/`
             <style>${this.style}</style>
+            <cursor-follower></cursor-follower>
             <nav-bar></nav-bar>
             <div class="content-container">
                 <header>
@@ -12,11 +13,15 @@ export class App extends HTMLElement{
                 </header>
                 
             </div>
+            
         `;
     
     }
     get style(){
         return /*css*/`
+            *{
+                z-index: 1;
+            }
             div *{
                 opacity: 0;
                 animation: fadein 2.8s forwards;

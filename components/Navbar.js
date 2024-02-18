@@ -37,6 +37,12 @@ export class Navbar extends HTMLElement{
     };
     get style(){
         return /*css*/`
+            *{
+                z-index: 1;
+            }
+            :host{
+                z-index: 1;
+            }
             div p, div h1{
                 opacity: 0;
                 animation: fadein 2.3s forwards;
@@ -92,21 +98,25 @@ export class Navbar extends HTMLElement{
                 width: 100%,
             }
             .navbar-footer div{
+                transition: 0.3s all;
+                border: 1px solid rgba(128, 128, 128, 0);
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 75px;
                 height: 75px;
                 text-align: center;
-                transition: 0.3s all;
-                border-radius: 10px;
+               
+                border-radius: 30px;
                 cursor: pointer;
                 
             }
             .navbar-footer div:hover{
+                transition: 0.3s all;
+                border: 1px solid white;
                 background-color: var(--navbar-hover-color);
+                
                 border-radius: 50%;
-                color: lightblue;
                 font-weight: 200;
             }
             .navbar-footer div p{
