@@ -5,14 +5,20 @@ export class App extends HTMLElement{
             <cursor-follower></cursor-follower>
             <nav-bar></nav-bar>
             <div class="content-container">
-                <header>
-                    <h1>Welcome to my site</h1>
-                    <h2>Chong Lee</h2>
-                    <hr>
-                    <hr>
-                </header>
+                <div class="header-container">
+                    <header>
+                        <h1>Welcome to my site</h1>
+                        <h2>Chong Lee</h2>
+                        <hr>
+                        <hr>
+                    </header>
+                </div>
+                
                 <main>
-
+                    <div class="text-article">
+                        <h3>Title</h3>
+                        <p>In eleifend et erat et ullamcorper. Nunc mi est, vehicula eu sapien et, mollis fermentum nunc. Praesent vel nisl sit amet justo lacinia luctus. Aliquam malesuada porttitor neque eu laoreet. In vehicula diam in hendrerit tristique. Suspendisse potenti. In sed justo sed lectus sodales congue. Vivamus sollicitudin tristique urna, at vestibulum nunc ullamcorper ut. Quisque vitae nulla nec dui tincidunt feugiat at id nulla. Nunc blandit vulputate volutpat. Maecenas tincidunt volutpat sapien, id aliquet enim pharetra et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porttitor, risus a rhoncus vestibulum, dui enim pulvinar ipsum, sed placerat quam tellus id leo. Mauris nibh risus, ullamcorper ut ipsum dapibus, varius rhoncus odio. Pellentesque posuere nulla tellus, in scelerisque dui egestas rhoncus. Aenean quis eleifend dolor.</p>
+                    </div>
                 </main>
                 <footer>
                     <p>© 2024 Chong Lee</p>
@@ -34,7 +40,7 @@ export class App extends HTMLElement{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: start;
                 min-height: 400vh;
             }
             .content-container{
@@ -45,6 +51,9 @@ export class App extends HTMLElement{
                 width: calc(100% - 40% - 200px);
                 min-height: 100vh;
                 font-family: var(--font-family);
+            }
+            .header-container{
+                min-height: 460px;
             }
             h1{
                 font-weight: 300;
@@ -114,5 +123,7 @@ export class App extends HTMLElement{
         this.shadowRoot.innerHTML = this.template;
         let temp = this.shadowRoot.querySelector('footer').getBoundingClientRect().top + window.scrollY;
         console.log(temp);  
+        let headerHeight = this.shadowRoot.querySelector('.header-container').getBoundingClientRect().height;
+        console.log(headerHeight);
     }
 }

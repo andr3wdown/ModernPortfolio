@@ -66,22 +66,14 @@ export class NavbarButtonDisplay extends HTMLElement{
         this.toggled = this.getAttribute('toggled') * 1;
         this.toggled_svg = /*html*/`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" fill-opacity="0" stroke="currentColor" stroke-dasharray="60" stroke-dashoffset="60" stroke-linecap="round" stroke-width="2" d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="0;0"/><animate fill="freeze" attributeName="fill-opacity" begin="0.2s" dur="0.1s" values="0;1"/></path></svg>`;
         this.untoggled_svg = /*html*/`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-dasharray="60" stroke-dashoffset="60" stroke-linecap="round" stroke-width="2" d="M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="0;0"/></path></svg>`;
-        this.render();
-        this.shadowRoot.querySelector('.button-container').addEventListener('click', () => {
-            this.toggled = this.toggled === 1 ? 0 : 1;
-            this.setAttribute('toggled', this.toggled);
-        });
-
-        
+        this.render();  
     };
-    static get observedAttributes(){
-        return ['toggled'];
-    };
+    static observedAttributes = ['toggled'];
+    
     attributeChangedCallback(name, oldValue, newValue) {
-        console.log(`${name}`);
         if(name === 'toggled'){
             this.toggled = newValue * 1;
-            console.log("attribute changed");
+            console.log(`toggled: ${this.toggled}`);
             this.render();
         }
     };
