@@ -24,10 +24,23 @@ export class App extends HTMLElement{
                                         This place isn't about being perfect. It's more like my creative playground where I try new things and showcase what I've made. Feel free to check things out. Enjoy your stay!</p>
                     </article-element>
                     <div class="project-card-container">
-                        <project-card image="https://via.placeholder.com/150" title="Project 1" description="This is a description of the project"></project-card>
-                        <project-card image="https://via.placeholder.com/150" title="Project 2" description="This is a description of the project"></project-card>
-                        <project-card image="https://via.placeholder.com/150" title="Project 3" description="This is a description of the project"></project-card>
-                        <project-card image="https://via.placeholder.com/150" title="Project 4" description="This is a description of the project"></project-card>
+                        <h3>Projects</h3>
+                        <project-card image="https://via.placeholder.com/250" title="Project 1">
+                            <p style="font-style: italic; color: lightgray;">2019</p>
+                            <p>Project 1 is a cool project that I made. It's about something that I like</p>
+                        </project-card>
+                        <project-card image="https://via.placeholder.com/250" title="Project 2">
+                            <p style="font-style: italic; color: lightgray;">2019</p>
+                            <p>Project 2 is a cool project that I made. It's about something that I like </p>
+                        </project-card>
+                        <project-card image="https://via.placeholder.com/250" title="Project 3">
+                            <p style="font-style: italic; color: lightgray;">2019</p>
+                            <p>Project 3 is a cool project that I made. It's about something that I like</p>
+                        </project-card>
+                        <project-card image="https://via.placeholder.com/250" title="Project 4">
+                            <p style="font-style: italic; color: lightgray;">2019</p>
+                            <p>Project 4 is a cool project that I made. It's about something that I like</p>
+                        </project-card>
                     </div>
                 </main>
                 <footer>
@@ -39,9 +52,6 @@ export class App extends HTMLElement{
     }
     get style(){
         return /*css*/`
-            *{
-                z-index: 1;
-            }
             h1, h2, p{
                 opacity: 0;
                 animation: fadein 2.3s forwards;
@@ -54,6 +64,7 @@ export class App extends HTMLElement{
                 min-height: 400vh;
             }
             .content-container{
+                z-index: 1;
                 display: flex;
                 flex-direction: column;
                 padding-left: calc(40% + 100px);
@@ -79,6 +90,10 @@ export class App extends HTMLElement{
                 justify-content: right;
                 align-items: flex-end;
             }
+            h3{
+                font-size: 48px;
+                font-weight: 500;
+            }
             header{
                 margin-top: 250px;
                 margin-bottom: 50px;
@@ -90,6 +105,9 @@ export class App extends HTMLElement{
             hr{
                 width: 100%;
         
+            }
+            .project-card-container{
+                width: 100%;
             }
             @keyframes slidedown{
                 0%{

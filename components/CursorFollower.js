@@ -52,16 +52,25 @@ export class CursorFollower extends HTMLElement{
         this.previous_mouse = {x: 0, y: 0};
         this.current_scale = 1;
         this.current_angle = 0;
-        this.SPEED = 0.1;
+        this.SPEED = 0.2;
         this.SCALE_SPEED = 0.1;
         this.OFFSET = 35;
 
         this.movable = this.shadowRoot.querySelector('.movable');
 
+        this.frameCount = 0;
+        this.lastTime = performance.now();
+        this.fps = 144;
+        this.currentTime = 0;
+        this.deltaTime = 0;
+        this.iterations = 0;
+        this.countFrames();
+
         document.onmousemove = (e) => {
             this.mouse_pos.x = e.clientX - this.OFFSET;
             this.mouse_pos.y = e.clientY - this.OFFSET;
         };
+
         this.update();
     };
 
@@ -76,9 +85,9 @@ export class CursorFollower extends HTMLElement{
     };
     mouse_move() {
 
-        this.movable_pos.x += (this.mouse_pos.x - this.movable_pos.x) * this.SPEED;
-        this.movable_pos.y += (this.mouse_pos.y - this.movable_pos.y) * this.SPEED;
-    
+        this.movable_pos.x += (this.mouse_pos.x - this.movable_pos.x) * this.SPEED * (this.fps / 144);
+        this.movable_pos.y += (this.mouse_pos.y - this.movable_pos.y) * this.SPEED * (this.fps / 144);
+        
         const delta_x = this.mouse_pos.x - this.previous_mouse.x;
         const delta_y = this.mouse_pos.y - this.previous_mouse.y;
         this.previous_mouse.x = this.mouse_pos.x;
@@ -100,5 +109,26 @@ export class CursorFollower extends HTMLElement{
         this.mouse_move();
         requestAnimationFrame(this.update.bind(this));   
     };
+    
+
+    countFrames() {     
+        this.frameCount++;
+        this.currentTime = performance.now();
+        this.deltaTime = this.currentTime - this.lastTime;
+
+        if (this.deltaTime > 1000) { // if a second has passed
+            this.fps = this.frameCount;
+            this.frameCount = 0;
+            this.lastTime = this.currentTime;
+            this.SPEED = this.fps < 70 ? 0.2 : 0.1;
+        }
+        this.iterations++;
+        if(this.iterations < 600){
+            requestAnimationFrame(this.countFrames.bind(this)); 
+        }
+        
+    }
+
+    
     
 }

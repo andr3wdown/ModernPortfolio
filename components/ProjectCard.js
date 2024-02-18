@@ -8,31 +8,79 @@ export class ProjectCard extends HTMLElement{
                 </div>
                 <div class="project-info">
                     <h3>${this.getAttribute('title')}</h3>
-                    <p>${this.getAttribute('description')}</p>
+                    <slot></slot>
                 </div>
             </div>
         `;
     };
     get style(){
         return /*css*/`
+            :host{
+                z-index: -1;
+            }
+            :host(:nth-child(even))   {
+
+                display: block;
+                transform: translateX(100%);
+                transition: transform 1s;
+            }
+            :host(:nth-child(odd))   {
+                display: block;
+                transform: translateX(-70%);
+                transition: transform 1s;
+            }
+
+            :host(.visible:nth-child(even)) {
+                transform: translateX(-75px);
+            }
+            :host(.visible:nth-child(odd)) {
+                transform: translateX(75px);
+            }
             .project-card{
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
-                justify-content: center;
+                justify-content: start;
                 margin: 20px;
                 padding: 20px;
-                background-color: var(--background-color);
+                background: var(--card-color);
+                background: var(--card-gradient);
                 border-radius: 10px;
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 transition: 0.3s all;
+                min-height: 300px;
+                border: 1px solid #00000000;
             }
             .project-card:hover{
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                border: 1px solid white;
+                cursor: pointer;
+            }
+            .project-image{
+                margin-right: 50px;
+                margin-left: 25px;
+
             }
             .project-image img{
-                width: 100%;
+                width: 250px;
                 border-radius: 10px;
+            }
+           
+           
+            .project-info{
+                height: 250px;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+            h3{
+                font-size: 32px;
+                font-weight: 500;
+                margin-bottom: 20px;
+                margin-top: 0px;
+            
             }
             `;
         }
@@ -40,5 +88,16 @@ export class ProjectCard extends HTMLElement{
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.innerHTML = this.template;
+    }
+    connectedCallback() {
+        var observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.classList.add('visible');
+                }
+            });
+        });
+
+        observer.observe(this);
     }
 }

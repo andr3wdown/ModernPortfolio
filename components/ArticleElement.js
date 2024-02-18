@@ -10,6 +10,9 @@ export class ArticleElement extends HTMLElement{
     };
     get style(){
         return /*css*/`
+            :host{
+                padding-bottom: 100px;
+            }
             .article-container{
                 font-family: var(--font-family);
                 position: relative; 
@@ -19,6 +22,7 @@ export class ArticleElement extends HTMLElement{
                 
                 
             }
+            
             ::slotted(p) {
                 font-size: 22px;
                 font-weight: 100;

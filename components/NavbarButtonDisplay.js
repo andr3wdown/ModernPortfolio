@@ -28,9 +28,12 @@ export class NavbarButtonDisplay extends HTMLElement{
                 text-decoration: underline rgba(255, 255, 255, 0);
                 transition: 0.3s all;
             }
+            .button-container:hover{
+                cursor: pointer;
+            }
             .button-container:hover p{
                 text-decoration: underline white;
-                margin-left: 30px;
+                margin-left: 10px;
             }
             .button-container svg{
                 opacity: 1;
