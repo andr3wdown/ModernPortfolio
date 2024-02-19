@@ -12,15 +12,17 @@ export class ArticleElement extends HTMLElement{
         return /*css*/`
             :host{
                 padding-bottom: 6.25em;
+                position: relative;  
+            }
+            :host(.visible){
+                animation-timing-function: linear;
+                animation: fadein 1.25s forwards;
             }
             .article-container{
                 font-family: var(--font-family);
-                position: relative;
+                
                 margin-bottom: 3.125em;
-                animation-timing-function: linear;
-                animation: fadein 1.25s forwards;
-
-
+                
             }
 
             ::slotted(p) {
@@ -49,5 +51,16 @@ export class ArticleElement extends HTMLElement{
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.innerHTML = this.template;
+    }
+    connectedCallback() {
+        var observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.classList.add('visible');
+                }
+            });
+        });
+
+        observer.observe(this);
     }
 }
