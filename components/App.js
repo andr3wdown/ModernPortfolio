@@ -13,7 +13,7 @@ export class App extends HTMLElement{
                         <hr>
                     </header>
                 </div>
-                
+
                 <main>
                     <article-element>
                         <h3 slot="title">About me</h3>
@@ -67,7 +67,7 @@ export class App extends HTMLElement{
                     <p>© 2024 Chong Lee</p>
                 </footer>
             </div>
-            
+
         `;
     }
     get style(){
@@ -86,22 +86,22 @@ export class App extends HTMLElement{
                 z-index: 1;
                 display: flex;
                 flex-direction: column;
-                padding-left: calc(40% + 100px);
-                padding-right: 100px;
-                width: calc(100% - 40% - 200px);
+                padding-left: calc(40% + 6.25em);
+                padding-right: 6.25em;
+                width: calc(100% - 40% - 12.5em);
                 min-height: 100vh;
                 font-family: var(--font-family);
             }
             .header-container{
-                min-height: 460px;
+                min-height: 28.75em;
             }
             h1{
                 font-weight: 300;
-                font-size: 64px;
+                font-size: 4.0em;
             }
             h2{
                 font-weight: 1000;
-                font-size: 32px;
+                font-size: 2.0em;
                 background: -webkit-linear-gradient(90deg, rgba(58,155,180,1) 0%, rgba(29,33,253,1) 50%, rgba(252,176,69,1) 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -110,12 +110,12 @@ export class App extends HTMLElement{
                 align-items: flex-end;
             }
             h3{
-                font-size: 48px;
+                font-size: 3.0em;
                 font-weight: 500;
             }
             header{
-                margin-top: 250px;
-                margin-bottom: 50px;
+                margin-top: 15.625em;
+                margin-bottom: 3.125em;
                 display: grid;
                 grid-template-areas: "h1 h2" "hr hr";
                 animation-timing-function: linear;
@@ -123,20 +123,20 @@ export class App extends HTMLElement{
             }
             hr{
                 width: 100%;
-        
+
             }
             .project-card-container{
                 width: 100%;
-                padding-bottom: 100px;
+                padding-bottom: 6.25em;
             }
             @keyframes slidedown{
                 0%{
                     opacity: 1;
-                    margin-top: -100px;
+                    margin-top: -6.25em;
                 }
                 100%{
                     opacity: 1;
-                    margin-top:150px;
+                    margin-top: 9.375em;
                 }
             }
             @keyframes fadein{
@@ -146,14 +146,14 @@ export class App extends HTMLElement{
                 100%{
                     opacity: 1;
                 }
-            
+
             }
         `;
-    
+
     }
     connectedCallback() {
         window.addEventListener('scroll', this.onScroll);
-        
+
     }
 
     disconnectedCallback() {
@@ -172,12 +172,12 @@ export class App extends HTMLElement{
         this.shadowRoot.innerHTML = this.template;
         setTimeout(() => {
             this.shadowRoot.querySelector('header').scrollIntoView(
-                { 
+                {
                     behavior: 'smooth'
                 }
             );
         }, 200);
-        
-        
+
+
     }
 }

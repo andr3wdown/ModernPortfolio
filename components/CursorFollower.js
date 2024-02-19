@@ -5,9 +5,9 @@ export class CursorFollower extends HTMLElement{
             <div class="movable-container">
                 <div class="movable"></div>
             </div>
-         
+
         `;
-    
+
     };
     get style(){
         return /*css*/`
@@ -24,11 +24,11 @@ export class CursorFollower extends HTMLElement{
                 fill: none;
                 stroke: white;
                 border: 1px solid white;
-                width: 50px;
-                height: 50px;
-                border-radius: 25px;
+                width: 3.125em;
+                height: 3.125em;
+                border-radius: 1.5625em;
                 animation: fadein 3s forwards;
-            
+
             }
             @keyframes fadein {
                 from {
@@ -40,10 +40,10 @@ export class CursorFollower extends HTMLElement{
             }
         `;
     };
-    
+
     constructor(){
         super();
-        
+
         this.attachShadow({mode: 'open'});
         this.shadowRoot.innerHTML = this.template;
 
@@ -87,31 +87,31 @@ export class CursorFollower extends HTMLElement{
 
         this.movable_pos.x += (this.mouse_pos.x - this.movable_pos.x) * this.SPEED * (this.fps / 144);
         this.movable_pos.y += (this.mouse_pos.y - this.movable_pos.y) * this.SPEED * (this.fps / 144);
-        
+
         const delta_x = this.mouse_pos.x - this.previous_mouse.x;
         const delta_y = this.mouse_pos.y - this.previous_mouse.y;
         this.previous_mouse.x = this.mouse_pos.x;
         this.previous_mouse.y = this.mouse_pos.y;
-    
+
         let magnitude = this.clamp(Math.sqrt((delta_x**2) + (delta_y**2)), 0, 50);
         let scale_factor = (magnitude / 50) * 0.6;
-    
+
         let angle = Math.atan2(delta_y, delta_x) * 180 / Math.PI;
         if(magnitude > 5){
             this.current_angle = angle;
         }
-    
+
         this.current_scale += (scale_factor - this.current_scale) * this.SCALE_SPEED;
-    
+
         this.movable.style.transform = `translate(${this.movable_pos.x}px, ${this.movable_pos.y}px) rotate(${this.current_angle}deg) scale(${1 + this.current_scale},${1 - this.current_scale})`;
     };
     update() {
         this.mouse_move();
-        requestAnimationFrame(this.update.bind(this));   
+        requestAnimationFrame(this.update.bind(this));
     };
-    
 
-    countFrames() {     
+
+    countFrames() {
         this.frameCount++;
         this.currentTime = performance.now();
         this.deltaTime = this.currentTime - this.lastTime;
@@ -124,11 +124,11 @@ export class CursorFollower extends HTMLElement{
         }
         this.iterations++;
         if(this.iterations < 600){
-            requestAnimationFrame(this.countFrames.bind(this)); 
+            requestAnimationFrame(this.countFrames.bind(this));
         }
-        
+
     }
 
-    
-    
+
+
 }

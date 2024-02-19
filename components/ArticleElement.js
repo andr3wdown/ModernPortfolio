@@ -11,32 +11,32 @@ export class ArticleElement extends HTMLElement{
     get style(){
         return /*css*/`
             :host{
-                padding-bottom: 100px;
+                padding-bottom: 6.25em;
             }
             .article-container{
                 font-family: var(--font-family);
-                position: relative; 
-                margin-bottom: 50px;
+                position: relative;
+                margin-bottom: 3.125em;
                 animation-timing-function: linear;
                 animation: fadein 1.25s forwards;
-                
-                
+
+
             }
-            
+
             ::slotted(p) {
-                font-size: 22px;
+                font-size: 1.375em;
                 font-weight: 100;
                 line-height: 1.5;
             }
             ::slotted(h3) {
-                font-size: 48px;
+                font-size: 3.0em;
                 font-weight: 500;
-                
+
             }
             @keyframes fadein{
                 0%{
                     opacity: 0;
-                    right: -500px;
+                    right: -31.25em;
                 }
                 100%{
                     opacity: 1;

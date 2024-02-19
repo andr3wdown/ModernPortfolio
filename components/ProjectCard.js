@@ -9,9 +9,9 @@ export class ProjectCard extends HTMLElement{
             <div class="project-info ${this.getAttribute('alignment')}-info">
                 <h3>${this.getAttribute('title')}</h3>
                 <slot></slot>
-                    
+
             </div>
-                
+
         `;
 
         return /*html*/`
@@ -19,8 +19,8 @@ export class ProjectCard extends HTMLElement{
             <div class="project-card">
                 ${this.getAttribute('alignment') === 'left' ? image : info}
                 ${this.getAttribute('alignment') === 'left' ? info : image}
-                
-                
+
+
             </div>
         `;
     };
@@ -42,72 +42,72 @@ export class ProjectCard extends HTMLElement{
             }
 
             :host(.visible:nth-child(even)) {
-                transform: translateX(-75px);
+                transform: translateX(-4.6875em);
             }
             :host(.visible:nth-child(odd)) {
-                transform: translateX(75px);
+                transform: translateX(4.6875em);
             }
-            
+
             .project-card{
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: start;
-                margin: 20px;
-                padding: 20px;
+                margin: 1.25em;
+                padding: 1.25em;
                 background: var(--card-color);
                 background: var(--card-gradient);
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 0.625em;
+                box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.1);
                 transition: 0.3s all;
-                min-height: 300px;
+                min-height: 18.75em;
                 border: 1px solid #00000000;
             }
             .project-card:hover{
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 0 1.25em rgba(0, 0, 0, 0.5);
                 border: 1px solid white;
                 cursor: pointer;
             }
             .right-img{
-                margin-right: 25px;
-                margin-left: 50px;
+                margin-right: 1.5625em;
+                margin-left: 3.125em;
             }
             .left-img{
-                margin-right: 50px;
-                margin-left: 25px;
+                margin-right: 3.125em;
+                margin-left: 1.5625em;
             }
 
             .project-image img{
-                width: 250px;
-                border-radius: 10px;
+                width: 15.625em;
+                border-radius: 0.625em;
             }
-           
+
             .project-info{
-                height: 250px;
+                height: 15.625em;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
-                
-                
+
+
             }
 
             .right-info{
                 align-items: flex-start;
-                margin-left: 25px;
+                margin-left: 1.5625em;
             }
             .left-info{
                 align-items: flex-end;
-                margin-right: 25px;
+                margin-right: 1.5625em;
             }
 
 
             h3{
-                font-size: 32px;
+                font-size: 2.0em;
                 font-weight: 500;
-                margin-bottom: 20px;
+                margin-bottom: 0.625em;
                 margin-top: 0px;
-            
+
             }
             `;
         }
