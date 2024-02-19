@@ -51,16 +51,20 @@ export class ArticleElement extends HTMLElement{
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.innerHTML = this.template;
+        this.initialized = false;
     }
     connectedCallback() {
         var observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     this.classList.add('visible');
+                    this.initialized = true;
                 }
             });
         });
-
-        observer.observe(this);
+        if(!this.initialized){
+            observer.observe(this);
+        }
+        
     }
 }
