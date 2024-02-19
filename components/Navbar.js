@@ -129,11 +129,21 @@ export class Navbar extends HTMLElement{
             }
         `;
     }
+    static observedAttributes = ['scroll-index']
     constructor(){
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.innerHTML = this.template;
 
     }
-
+    attributeChangedCallback(name, oldValue, newValue) {
+        if(name === 'scroll-index'){
+            let elements = this.shadowRoot.querySelector('.navbar').querySelectorAll('navbar-button');
+            for(let i = 0; i < elements.length; i++){
+                elements[i].setAttribute('toggled', i === newValue * 1 ? 1 : 0);
+            }
+            oldValue = newValue;
+        }
+    };
+    
 }

@@ -3,9 +3,10 @@ export class App extends HTMLElement{
         return /*html*/`
             <style>${this.style}</style>
             <cursor-follower></cursor-follower>
-            <nav-bar></nav-bar>
+            <nav-bar scroll-index=0></nav-bar>
             <div class="content-container">
                 <div class="header-container">
+                    <div class="header-anchor"></div>
                     <header>
                         <h1>Welcome to my site</h1>
                         <h2>Chong Lee</h2>
@@ -13,9 +14,8 @@ export class App extends HTMLElement{
                         <hr>
                     </header>
                 </div>
-
                 <main>
-                    <article-element>
+                    <article-element class="about-element">
                         <h3 slot="title">About me</h3>
                         <p slot="text"> Welcome to my online spot! I'm Chong Lee, and I like messing around with code and design.
 
@@ -46,7 +46,7 @@ export class App extends HTMLElement{
                             <p>Project 5 is a cool project that I made. It's about something that I like</p>
                         </project-card>
                     </div>
-                    <article-element class="blog-title">
+                    <article-element class="blog-element">
                         <h3 slot="title">Blog</h3>
                         <p slot="text"> Welcome to my online spot! I'm Chong Lee, and I like messing around with code and design.
 
@@ -54,7 +54,7 @@ export class App extends HTMLElement{
 
                                         This place isn't about being perfect. It's more like my creative playground where I try new things and showcase what I've made. Feel free to check things out. Enjoy your stay!</p>
                     </article-element>
-                    <article-element class="more-title">
+                    <article-element class="more-element">
                         <h3 slot="title">More</h3>
                         <p slot="text"> Welcome to my online spot! I'm Chong Lee, and I like messing around with code and design.
 
@@ -151,25 +151,14 @@ export class App extends HTMLElement{
         `;
 
     }
-    connectedCallback() {
-        window.addEventListener('scroll', this.onScroll);
 
-    }
-
-    disconnectedCallback() {
-        window.removeEventListener('scroll', this.onScroll);
-    }
-
-    onScroll = () => {
-        //console.log(window.scrollY);
-    }
-    get screenBottom(){
-        return window.scrollY + window.innerHeight;
-    }
     constructor(){
         super();
         this.attachShadow({mode: 'open'});
         this.shadowRoot.innerHTML = this.template;
+        this.lastScroll = 0;
+        this.scrollDifference = 0;
+        this.scrollIndex = 0;
         setTimeout(() => {
             this.shadowRoot.querySelector('header').scrollIntoView(
                 {
@@ -179,5 +168,61 @@ export class App extends HTMLElement{
         }, 200);
 
 
+    }
+    
+    connectedCallback() {
+        this.addAnchors();
+        window.addEventListener('scroll', this.onScroll);
+    }
+
+    disconnectedCallback() {
+        window.removeEventListener('scroll', this.onScroll);
+    }
+
+    onScroll = () => {
+        this.scrollDifference = window.scrollY - this.lastScroll;
+        this.lastScroll = window.scrollY;
+    }
+    get scrollDirection (){
+        return this.scrollDifference > 0 ? "down" : "up";
+    }
+    get screenBottom(){
+        return window.scrollY + window.innerHeight;
+    }
+
+    addAnchors(){
+        let anchors = ['.about-element','.project-card-container','.blog-element','.more-element'];
+        for(let i = 0; i < anchors.length; i++){
+            this.observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.handleAnchorVisible(i);
+                    }
+                    if(!entry.isIntersecting){
+                        this.handleAnchorInvisible(i);
+                    }
+                });
+            });
+            
+            const child = this.shadowRoot.querySelector(anchors[i]);
+            this.observer.observe(child);
+        }
+    }
+    handleAnchorVisible(index){
+        
+        if(this.scrollDifference > 0){
+            this.scrollIndex = index;
+            this.shadowRoot.querySelector('nav-bar').setAttribute('scroll-index', this.scrollIndex);
+            console.log("Anchor became visible:", this.scrollIndex);
+        }
+    }
+    handleAnchorInvisible(index){
+        
+        if(this.scrollDifference < 0){
+            this.scrollIndex = index - 1;
+            this.shadowRoot.querySelector('nav-bar').setAttribute('scroll-index', this.scrollIndex);
+            console.log("Anchor became invisible:", this.scrollIndex);
+        }
+        
     }
 }
