@@ -161,7 +161,7 @@ export class App extends HTMLElement{
     }
 
     onScroll = () => {
-        console.log(window.scrollY);
+        //console.log(window.scrollY);
     }
     get screenBottom(){
         return window.scrollY + window.innerHeight;
