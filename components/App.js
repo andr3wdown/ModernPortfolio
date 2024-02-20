@@ -86,22 +86,22 @@ export class App extends HTMLElement{
                 z-index: 1;
                 display: flex;
                 flex-direction: column;
-                padding-left: calc(40% + 6.25em);
-                padding-right: 6.25em;
-                width: calc(100% - 40% - 12.5em);
+                padding-left: calc(40% + 6.25rem);
+                padding-right: 6.25rem;
+                width: calc(100% - 40% - 12.5rem);
                 min-height: 100vh;
                 font-family: var(--font-family);
             }
             .header-container{
-                min-height: 28.75em;
+                min-height: 28.75rem;
             }
             h1{
                 font-weight: 300;
-                font-size: 4.0em;
+                font-size: 4.0rem;
             }
             h2{
                 font-weight: 1000;
-                font-size: 2.0em;
+                font-size: 2.0rem;
                 background: -webkit-linear-gradient(90deg, rgba(58,155,180,1) 0%, rgba(29,33,253,1) 50%, rgba(252,176,69,1) 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -110,12 +110,12 @@ export class App extends HTMLElement{
                 align-items: flex-end;
             }
             h3{
-                font-size: 3.0em;
+                font-size: 3.0rem;
                 font-weight: 500;
             }
             header{
-                margin-top: 15.625em;
-                margin-bottom: 3.125em;
+                margin-top: 15.625rem;
+                margin-bottom: 3.125rem;
                 display: grid;
                 grid-template-areas: "h1 h2" "hr hr";
                 animation-timing-function: linear;
@@ -127,16 +127,16 @@ export class App extends HTMLElement{
             }
             .project-card-container{
                 width: 100%;
-                padding-bottom: 6.25em;
+                padding-bottom: 6.25rem;
             }
             @keyframes slidedown{
                 0%{
                     opacity: 1;
-                    margin-top: -6.25em;
+                    margin-top: -6.25rem;
                 }
                 100%{
                     opacity: 1;
-                    margin-top: 9.375em;
+                    margin-top: 9.375rem;
                 }
             }
             @keyframes fadein{
@@ -169,7 +169,7 @@ export class App extends HTMLElement{
 
 
     }
-    
+
     connectedCallback() {
         this.addAnchors();
         window.addEventListener('scroll', this.onScroll);
@@ -203,25 +203,25 @@ export class App extends HTMLElement{
                     }
                 });
             });
-            
+
             const child = this.shadowRoot.querySelector(anchors[i]);
             this.observer.observe(child);
         }
     }
     handleAnchorVisible(index){
-        
+
         if(this.scrollDifference > 0){
             this.scrollIndex = index;
             this.shadowRoot.querySelector('nav-bar').setAttribute('scroll-index', this.scrollIndex);
             console.log("Anchor became visible:", this.scrollIndex);
         }
     }
-    handleAnchorInvisible(index){    
+    handleAnchorInvisible(index){
         if(this.scrollDifference < 0){
             this.scrollIndex = index - 1;
             this.shadowRoot.querySelector('nav-bar').setAttribute('scroll-index', this.scrollIndex);
             console.log("Anchor became invisible:", this.scrollIndex);
         }
-        
+
     }
 }

@@ -11,8 +11,8 @@ export class ArticleElement extends HTMLElement{
     get style(){
         return /*css*/`
             :host{
-                padding-bottom: 6.25em;
-                position: relative;  
+                padding-bottom: 6.25rem;
+                position: relative;
             }
             :host(.visible){
                 animation-timing-function: linear;
@@ -20,25 +20,25 @@ export class ArticleElement extends HTMLElement{
             }
             .article-container{
                 font-family: var(--font-family);
-                
-                margin-bottom: 3.125em;
-                
+
+                margin-bottom: 3.125rem;
+
             }
 
             ::slotted(p) {
-                font-size: 1.375em;
+                font-size: 1.375rem;
                 font-weight: 100;
                 line-height: 1.5;
             }
             ::slotted(h3) {
-                font-size: 3.0em;
+                font-size: 3.0rem;
                 font-weight: 500;
 
             }
             @keyframes fadein{
                 0%{
                     opacity: 0;
-                    right: -31.25em;
+                    right: -31.25rem;
                 }
                 100%{
                     opacity: 1;
@@ -65,6 +65,6 @@ export class ArticleElement extends HTMLElement{
         if(!this.initialized){
             observer.observe(this);
         }
-        
+
     }
 }

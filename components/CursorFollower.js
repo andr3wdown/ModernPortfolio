@@ -24,9 +24,9 @@ export class CursorFollower extends HTMLElement{
                 fill: none;
                 stroke: white;
                 border: 1px solid white;
-                width: 3.125em;
-                height: 3.125em;
-                border-radius: 1.5625em;
+                width: 3.125rem;
+                height: 3.125rem;
+                border-radius: 1.5625rem;
                 animation: fadein 3s forwards;
 
             }

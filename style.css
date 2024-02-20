@@ -11,6 +11,8 @@
     --navbar-gradient: linear-gradient(0deg, rgba(11,11,22,1) 0%, rgba(10,10,19,1) 30%);
     --card-color: rgb(25, 25, 39);
     --card-gradient: linear-gradient(0deg, rgba(25, 25, 39, 1) 0%, rgba(17, 17, 29, 1) 100%);
+
+    font-size: 16px;
 }
 body{
     /*background-color: var(--background-color);*/

@@ -94,11 +94,11 @@ export class Navbar extends HTMLElement{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 4.6875em;
-                height: 4.6875em;
+                width: 4.6875rem;
+                height: 4.6875rem;
                 text-align: center;
 
-                border-radius: 1.875em;
+                border-radius: 1.875rem;
                 cursor: pointer;
 
             }
@@ -111,11 +111,11 @@ export class Navbar extends HTMLElement{
                 font-weight: 200;
             }
             .navbar-footer div p{
-                font-size: 2.0em;
+                font-size: 2.0rem;
                 font-weight: 100;
             }
             h1{
-                font-size: 4.0em;
+                font-size: 4.0rem;
                 font-weight: 300;
             }
             @keyframes fadein{
@@ -146,5 +146,5 @@ export class Navbar extends HTMLElement{
             //oldValue = newValue;
         }
     };
-    
+
 }

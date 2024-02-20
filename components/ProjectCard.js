@@ -42,10 +42,10 @@ export class ProjectCard extends HTMLElement{
             }
 
             :host(.visible:nth-child(even)) {
-                transform: translateX(-4.6875em);
+                transform: translateX(-4.6875rem);
             }
             :host(.visible:nth-child(odd)) {
-                transform: translateX(4.6875em);
+                transform: translateX(4.6875rem);
             }
 
             .project-card{
@@ -53,37 +53,37 @@ export class ProjectCard extends HTMLElement{
                 flex-direction: row;
                 align-items: center;
                 justify-content: start;
-                margin: 1.25em;
-                padding: 1.25em;
+                margin: 1.25rem;
+                padding: 1.25rem;
                 background: var(--card-color);
                 background: var(--card-gradient);
-                border-radius: 0.625em;
-                box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.1);
+                border-radius: 0.625rem;
+                box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
                 transition: 0.3s all;
-                min-height: 18.75em;
+                min-height: 18.75rem;
                 border: 1px solid #00000000;
             }
             .project-card:hover{
-                box-shadow: 0 0 1.25em rgba(0, 0, 0, 0.5);
+                box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.5);
                 border: 1px solid white;
                 cursor: pointer;
             }
             .right-img{
-                margin-right: 1.5625em;
-                margin-left: 3.125em;
+                margin-right: 1.5625rem;
+                margin-left: 3.125rem;
             }
             .left-img{
-                margin-right: 3.125em;
-                margin-left: 1.5625em;
+                margin-right: 3.125rem;
+                margin-left: 1.5625rem;
             }
 
             .project-image img{
-                width: 15.625em;
-                border-radius: 0.625em;
+                width: 15.625rem;
+                border-radius: 0.625rem;
             }
 
             .project-info{
-                height: 15.625em;
+                height: 15.625rem;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
@@ -94,18 +94,18 @@ export class ProjectCard extends HTMLElement{
 
             .right-info{
                 align-items: flex-start;
-                margin-left: 1.5625em;
+                margin-left: 1.5625rem;
             }
             .left-info{
                 align-items: flex-end;
-                margin-right: 1.5625em;
+                margin-right: 1.5625rem;
             }
 
 
             h3{
-                font-size: 2.0em;
+                font-size: 2.0rem;
                 font-weight: 500;
-                margin-bottom: 0.625em;
+                margin-bottom: 0.625rem;
                 margin-top: 0px;
 
             }
@@ -129,6 +129,6 @@ export class ProjectCard extends HTMLElement{
         if(!this.initialized){
             observer.observe(this);
         }
-        
+
     }
 }

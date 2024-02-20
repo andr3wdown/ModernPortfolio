@@ -15,6 +15,26 @@ def replace_px_values(line):
             line = re.sub(match, pixel_to_em(int(match[:-2])), line)
     return line
 
+def replace_em_values(line):
+    matches = re.findall(r'(\d+\.\d+)em', line)
+    for match in matches:
+        line = re.sub("em", "rem", line)
+    return line
+
+def em_to_rem_refactor(path):
+    files = os.listdir(path)
+    for file in files:
+        with open(path + file, 'r') as f:
+            lines = [line.rstrip() for line in f]
+        with open(output_path + file, 'w') as f:
+            for line in lines:
+                modified = replace_em_values(line)
+                f.write(modified + "\n")
+                
+                
+    
+
+
 def auto_refactor(path):
     files = os.listdir(path)
     for file in files:
@@ -25,4 +45,5 @@ def auto_refactor(path):
                 modified = replace_px_values(line)
                 f.write(modified + "\n")
     
-auto_refactor(file_path)
+#auto_refactor(file_path)
+em_to_rem_refactor(file_path)
