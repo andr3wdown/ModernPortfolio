@@ -1,8 +1,7 @@
 export class Scaler extends HTMLElement{
 
     get font_size(){
-        let scale_factor = 16 / 1920;
-        
+        let scale_factor = 16 / 1920;    
         return scale_factor * window.innerWidth; 
     }
 
