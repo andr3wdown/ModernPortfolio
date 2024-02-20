@@ -8,10 +8,10 @@ export class Navbar extends HTMLElement{
 
                 </div>
                 <div class="navbar">
-                    <navbar-button toggled="1" first-time="1">About me</navbar-button>
-                    <navbar-button toggled="0" first-time="1">Projects</navbar-button>
-                    <navbar-button toggled="0" first-time="1">Blog</navbar-button>
-                    <navbar-button toggled="0" first-time="1">More</navbar-button>
+                    <navbar-button toggled="0" first-time="0">About me</navbar-button>
+                    <navbar-button toggled="0" first-time="0">Projects</navbar-button>
+                    <navbar-button toggled="0" first-time="0">Blog</navbar-button>
+                    <navbar-button toggled="0" first-time="0">More</navbar-button>
                 </div>
 
                 <div class="navbar-footer">
@@ -142,7 +142,8 @@ export class Navbar extends HTMLElement{
             for(let i = 0; i < elements.length; i++){
                 elements[i].setAttribute('toggled', i === newValue * 1 ? 1 : 0);
             }
-            oldValue = newValue;
+            console.log(`$scroll index changed to ${newValue} from ${oldValue}`);
+            //oldValue = newValue;
         }
     };
     

@@ -216,8 +216,7 @@ export class App extends HTMLElement{
             console.log("Anchor became visible:", this.scrollIndex);
         }
     }
-    handleAnchorInvisible(index){
-        
+    handleAnchorInvisible(index){    
         if(this.scrollDifference < 0){
             this.scrollIndex = index - 1;
             this.shadowRoot.querySelector('nav-bar').setAttribute('scroll-index', this.scrollIndex);
