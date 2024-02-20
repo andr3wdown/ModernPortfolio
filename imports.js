@@ -4,6 +4,7 @@ import { CursorFollower } from './components/CursorFollower.js';
 import { NavbarButtonDisplay } from './components/NavbarButtonDisplay.js';
 import { ArticleElement } from './components/ArticleElement.js';
 import { ProjectCard } from './components/ProjectCard.js';
+import { Scaler } from './components/Scaler.js';
 
 const main = () => {
     customElements.define('app-root', App);
@@ -12,5 +13,6 @@ const main = () => {
     customElements.define('navbar-button', NavbarButtonDisplay);
     customElements.define('article-element', ArticleElement);
     customElements.define('project-card', ProjectCard);
+    customElements.define('scaler-element', Scaler)
 }
 main();

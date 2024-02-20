@@ -2,6 +2,7 @@ export class App extends HTMLElement{
     get template () {
         return /*html*/`
             <style>${this.style}</style>
+            <scaler-element></scaler-element>
             <cursor-follower></cursor-follower>
             <nav-bar scroll-index=0></nav-bar>
             <div class="content-container">
